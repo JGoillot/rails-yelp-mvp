@@ -6,8 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts 'destroying restaurants'
 
-restaurant = Restaurant.create([
+Restaurant.destroy_all
+
+restaurants = [
   { name: "Fufu",
     address: "37 Rue Saint Rémi",
     phone_number: "05 56 52 10 29",
@@ -33,4 +36,9 @@ restaurant = Restaurant.create([
     phone_number: "05 56 44 91 05",
     category: "italian"
   }
-  ])
+]
+puts 'seeding restaurants'
+restaurants.each do |r|
+  Restaurant.create!(r)
+end
+puts 'seed fucking done !'

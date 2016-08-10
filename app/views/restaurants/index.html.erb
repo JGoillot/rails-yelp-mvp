@@ -1,0 +1,15 @@
+<% content_for :restaurant_count do %>
+  <%= @restaurants.count %>
+<% end %>
+
+
+
+<div class="all-list">
+  <% @restaurants.each do |restaurant| %>
+  <div class="restaurant-detail">
+    <h2><%= link_to restaurant.name, restaurant_path(restaurant) %> <button type="button" class="btn btn-default btn-xs"><%= restaurant.category %></button></h2>
+    <p><h5><i class="fa fa-map-marker" aria-hidden="true"></i> <%= restaurant.address %></h5></p>
+    <p><h5><i class="fa fa-phone" aria-hidden="true"></i> <%= restaurant.phone_number %></h5></p>
+  </div>
+  <% end %>
+</div>

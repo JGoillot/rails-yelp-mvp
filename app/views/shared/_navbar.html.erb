@@ -1,0 +1,18 @@
+
+ <div class="nav-bar">
+    <div>
+      <%= link_to restaurants_path do %>
+        <%= image_tag "http://lewagon.github.io/ui-components/images/lewagon.png", class: "avatar-myhead"%>
+      <% end %>
+    </div>
+  <div>
+        <%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-danger btn-head"  %>
+  </div>
+  <div>
+        <div class="badge-container">
+          <i class="fa fa-cutlery"></i>
+          <div class="badge badge-red"><%= yield(:restaurant_count) %></div>
+        </div>
+  </div>
+
+</div>

@@ -5,4 +5,9 @@ class Restaurant < ApplicationRecord
   validates :address, presence: true
   validates :category, presence: true, :inclusion => { :in => %w{ chinese italian japanese french belgian }}
   # validates :phone_number, :phone_number => {:ten_digits => true, :seven_digits => true, :allow_blank => true, :message => "Phone number must be either seven or digits in length, or blank."}
+  #
+
+  def average_rating
+    reviews.inject { |sum, review| sum + review.rating } / reviews.count
+  end
 end

@@ -1,0 +1,33 @@
+
+
+<div class="all-list">
+<br>
+  <div class="media">
+    <div class="media-left media-middle">
+      <%= image_tag "http://placehold.it/120x120", class: "media-object" %>
+    </div>
+    <div class="media-body">
+      <h1 class="media-heading"><%= @restaurant.name %> <%= @stars %></h1>
+      <h5><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @restaurant.address %></h5>
+      <h5><i class="fa fa-phone" aria-hidden="true"></i> <%= @restaurant.phone_number %></h5>
+
+   </div>
+  </div>
+  <div class="review">
+  <% @restaurant.reviews.each do |review| %>
+    <blockquote>
+      <p><i class="fa fa-quote-left font-small" aria-hidden="true"></i> <%= review.content %> </p>
+      <% review.rating %>
+    </blockquote>
+  <% end %>
+  </div>
+</div>
+
+
+
+<div class="text-center">
+<%= link_to "View all restaurants", restaurants_path, class: "btn btn-primary" %>
+<%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary"  %>
+</div>
+
+
